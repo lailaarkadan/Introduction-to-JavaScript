@@ -1,5 +1,7 @@
 /*🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️ Task 1: Warm-up! 🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️*/
 
+const { FLATTENABLE_KEYS } = require("@babel/types");
+
 /*MAKE SURE TO RETURN ALL OF THE ANSWERS INSIDE OF A FUNCTION (tasks 1d through task 7), IF YOU DON'T, THE AUTOGRADER WILL NOT WORK*/
 
 // task 1a, 1b, and 1c are not autograded
@@ -20,6 +22,13 @@ Do the following:
    HINT: no function required
 */
 
+const votingAge = 18;
+
+if(votingAge>= 18){
+  console.log(true);
+}else{
+  console.log(false);
+}
 
 
 /*
@@ -32,9 +41,16 @@ Do the following:
 
    HINT: no function required
 */
+let dog= 'Ada';
+let behavior = 'bad';
 
+if(behavior === 'bad'){
+  dog = 'Noa';
+}else{
+dog = 'Ada';
+}
 
-
+console.log(dog);
 
 
 /*
@@ -47,6 +63,8 @@ Do the following:
 
    HINT: look up the Number method
 */
+const party = '1999'
+console.log(Number(party));
 
 
 
@@ -60,9 +78,11 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-  /*add your code here*/
+function multiply(a, b){
+  return a * b;
 }
+
+console.log(multiply(9, 9));
 
 
 
@@ -76,8 +96,11 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-  /*add your code here*/
+function dogYears(age){
+  return age * 7;
+
+  console.log(dogYears(25));
+  
 }
 
 
