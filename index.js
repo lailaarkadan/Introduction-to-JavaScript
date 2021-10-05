@@ -1,6 +1,7 @@
 /*🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️ Task 1: Warm-up! 🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️*/
 
-const { FLATTENABLE_KEYS } = require("@babel/types");
+const { FLATTENABLE_KEYS, returnStatement } = require("@babel/types");
+const { ESLint } = require("eslint");
 
 /*MAKE SURE TO RETURN ALL OF THE ANSWERS INSIDE OF A FUNCTION (tasks 1d through task 7), IF YOU DON'T, THE AUTOGRADER WILL NOT WORK*/
 
@@ -132,9 +133,31 @@ Puppies less than 1 year
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+function hungryDog(weight, age){
+  if(age >= 1 && weight <=5){
+    return weight * 0.05;
+  }else if(age >= 1 && weight >= 6 && weight <= 10){
+  return weight * 0.04;
+}else if(age >= 1 && weight >=11 && weight <= 15){
+  return weight * 0.03;
+  }else if(age >= 1 && weight > 15){
+    return weight * 0.02;
+  }else if (age < 1 && age >= 0.583){
+    return weight * 0.04;
+}else if(age < 0.538 && age >= 0.333){
+  return weight * 0.05;
+}else if(age < 0.333 ){
+return weight * 0.10;
+}else{
+  return 'please try again';
+ }
 }
+
+console.log(hungryDog(15, 1));
+
+
+
+  
 
 
 
@@ -158,12 +181,32 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
+let computer = Math.random();
+
+if(computer <= 0.034){
+  computer = 'rock';
+}else if(computer <= 0.67){
+  computer = 'paper';
+}else if (computer > 0.67){
+  computer = 'scissors';
+}
 
 function game(user, computer){
-  /*add your code here*/
+  if(user === computer){
+    return `it's a tie`
+  }else if(user === 'rock' && computer === 'scissors'){
+    return `you win!`;
+  }else if( user === 'paper' && computer === 'rock'){
+    return `you win!`
+  }else if(user === 'scissors' && computer ==='paper'){
+    return `you win!`;
+  }else{
+    return `you lose!`;
+  }
 }
 
 
+console.log(game('paper', computer));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -176,9 +219,11 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(km){
+  return km * 0.621371;
 }
+
+console.log(miles(2));
 
 
 
@@ -190,9 +235,12 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(cm){
+  return cm / 30.48;
 }
+
+console.log(feet(160));
+
 
 
 
@@ -206,10 +254,14 @@ Using the annoyingSong function below do the following:
     "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
-}
+function annoyingSong(number){
+     for(let i = number; i > 0; i --){
+       return `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i -1} bottles of soda on the wall`;
+     }
+  }
 
+  console.log(annoyingSong(8));
+  console.log(annoyingSong(7));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -226,9 +278,22 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
-/*Your Code here */
+function grade(number){
+  if(number >= 90){
+    return `you got an A`;
+    }else if(number < 90 && number >= 80){
+      return `you got a B`;
+    }else if(number < 80 && number >= 70){
+      return `you got a C`;
+    }else if(number < 70 && number >= 60){
+      return `you got a D`;
+    }else if(number < 60 ){
+      return `you got an F`;
+  }
 }
+
+console.log(grade(85));
+
 
 
 
